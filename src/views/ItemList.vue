@@ -14,7 +14,6 @@ const fetchAllItems = computed(async () => {
   itemList.value = data
 })
 
-
 onMounted(() => {
   console.log("On mounted app")
 
@@ -33,6 +32,10 @@ onMounted(() => {
       <RouterLink :to="`/single-item/${item.id }`">
         Go to Single Item
       </RouterLink>
+
+      <button @click="$emit('addItemIntoCard', item)">
+        Add to cart
+      </button>
     </div>
   </div>
 </template>

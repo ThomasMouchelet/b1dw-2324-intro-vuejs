@@ -2,15 +2,13 @@
 import { ref } from 'vue'
 import CardItemsList from './components/CardItemsList.vue';
 
-const cardItemsList = ref([
-  {
-    id: 999,
-    title: "Card test"
-  }  
-])
+const cardItemsList = ref([])
 
 // Add new item to cardItemsList
-
+const addItemIntoCard = (item) => {
+ console.log("Add new item:" , item)
+ cardItemsList.value.push(item)
+}
 </script>
 
 <template>
@@ -24,10 +22,10 @@ const cardItemsList = ref([
   <div class="container">
     <div class="row">
       <div class="col">
-        <RouterView />
+        <RouterView @addItemIntoCard="addItemIntoCard" />
       </div>
       <div class="col">
-        <CardItemsList title="List items card"></CardItemsList>
+        <CardItemsList title="List items card" :cardItemsList="cardItemsList"></CardItemsList>
       </div>
     </div>
   </div>
