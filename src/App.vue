@@ -9,6 +9,11 @@ const addItemIntoCard = (item) => {
  console.log("Add new item:" , item)
  cardItemsList.value.push(item)
 }
+
+const removeItemCard = (removeItem) => {
+ console.log("Remove item:" , removeItem)
+ cardItemsList.value = cardItemsList.value.filter(item => item.id !== removeItem.id)
+}
 </script>
 
 <template>
@@ -22,10 +27,16 @@ const addItemIntoCard = (item) => {
   <div class="container">
     <div class="row">
       <div class="col">
-        <RouterView @addItemIntoCard="addItemIntoCard" />
+        <RouterView 
+          @addItemIntoCard="addItemIntoCard" 
+        />
       </div>
       <div class="col">
-        <CardItemsList title="List items card" :cardItemsList="cardItemsList"></CardItemsList>
+        <CardItemsList 
+          title="List items card" 
+          @removeItemCard="removeItemCard"
+          :cardItemsList="cardItemsList"
+          ></CardItemsList>
       </div>
     </div>
   </div>
