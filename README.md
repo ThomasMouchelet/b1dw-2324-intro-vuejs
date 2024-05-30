@@ -10,3 +10,7 @@
 # TODO 2
 - List all items card into component CardItemsList (props)
 - Push item into cardItemsList ref
+
+# TODO 3
+- form add item
+- filter (category, price, rating, title (like))
